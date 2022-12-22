@@ -46,15 +46,15 @@ spec:
               path: /
               port: http
           volumeMounts:
-          - name: persistent-storage
+          - name: "persistent-storage"
             mountPath: "/var/www/html"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
       volumes:
-      - name: persistent-storage
+      - name: "persistent-storage"
         persistentVolumeClaim:
           claimName: "{{ include "first-app.fullname" . }}-pvc"
+      {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
