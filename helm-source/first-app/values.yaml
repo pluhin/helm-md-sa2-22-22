@@ -58,8 +58,8 @@ ingress:
   #      - chart-example.local
 
 pvc:
-  storage-size: 1Gi
-  storage-class: nfs
+  storage_size: 1Gi
+  storage_class: nfs
 
 resources:
   limits:
